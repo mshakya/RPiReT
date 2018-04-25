@@ -1,0 +1,29 @@
+Package: RPiReT
+Type: Package
+Title: A package that supports PiReT
+Version: 0.1.0
+Author: Migun Shakya
+Maintainer: Migun Shakya <migun@lanl.gov>
+Description: Collection of functions to parse and process PiReT results.
+Depends:
+    R (>= 3.4.2),
+    S4Vectors (>= 0.9.25),
+    IRanges,
+    GenomicRanges,
+    SummarizedExperiment (>= 1.1.6)
+Imports:
+    BiocGenerics (>= 0.7.5),
+    ggplot2,
+    dplyr,
+    pheatmap,
+    DESeq2
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown,
+    devtools,
+    roxygen2
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
