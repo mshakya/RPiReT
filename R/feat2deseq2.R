@@ -1,7 +1,7 @@
 #' @importFrom GenomicRanges makeGRangesFromDataFrame
-#' @importFrom  DESeq2 DESeqDataSetFromMatrix
+#' @importFrom  DESeq2 DESeqDataSetFromMatrix counts
 #' @importFrom dplyr select
-#' @importFrom utils read.table
+#' @importFrom utils read.table write.csv
 
 
 NULL
@@ -21,26 +21,26 @@ NULL
 feat2deseq2 <- function(feat_count, exp_desn){
 
     # read table
-    read.counts <- read.table(feat_count, sep = "\t", header = TRUE, row.names = 1)
-    names(read.counts) <- base::gsub(".*mapping_results.", "", names(read.counts),
+    read_counts <- utils::read.table(feat_count, sep = "\t", header = TRUE, row.names = 1)
+    names(read_counts) <- base::gsub(".*mapping_results.", "",
+                                     names(read_counts),
                                      perl = TRUE)
-    names(read.counts) <- base::gsub("_srt.bam", "", names(read.counts), perl = TRUE)
-    gene.info <- read.counts[, c(1:5)]
-    gene.ranges <- GenomicRanges::makeGRangesFromDataFrame(gene.info)
+    names(read_counts) <- base::gsub("_srt.bam", "", names(read_counts), perl = TRUE)
+    gene_info <- read_counts[, c(1:5)]
+    gene_ranges <- GenomicRanges::makeGRangesFromDataFrame(gene_info)
 
     #read in the table with group info
     group_table <- utils::read.delim(exp_desn, row.names = 1)
     group_table <- dplyr::select(group_table, Group)
-    read.counts <- read.counts[, rownames(group_table)]
-    deseq_ds <- DESeq2::DESeqDataSetFromMatrix(countData = read.counts,
+    read_counts <- read_counts[, rownames(group_table)]
+    deseq_ds <- DESeq2::DESeqDataSetFromMatrix(countData = read_counts,
                                               colData = group_table,
                                               design = ~ Group,
                                               tidy = FALSE,
-                                              rowRanges=gene.ranges)
+                                              rowRanges=gene_ranges)
 
   # remove genes without any counts
-  deseq_ds <- deseq_ds[base::rowSums(counts(deseq_ds)) > 0, ]
+  deseq_ds <- deseq_ds[base::rowSums(DESeq2::counts(deseq_ds)) > 0, ]
 
   return(deseq_ds)
 }
-
