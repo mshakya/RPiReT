@@ -2,7 +2,7 @@
 % Please edit documentation in R/DESeq2FPKM.R
 \name{DESeq2FPKM}
 \alias{DESeq2FPKM}
-\title{Calculates FPKM from DESeq2 object and creates corresponding figures}
+\title{Calculates FPKM from DESeq2 object}
 \usage{
 DESeq2FPKM(DESeq2_object, feat_count, outdir)
 }
@@ -17,5 +17,5 @@ DESeq2FPKM(DESeq2_object, feat_count, outdir)
 creates CSV fpkm table base off DEDeq2 object
 }
 \description{
-Calculates FPKM from DESeq2 object and creates corresponding figures
+Calculates FPKM from DESeq2 object
 }
