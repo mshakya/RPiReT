@@ -7,9 +7,9 @@ globalVariables(".")
 
 NULL
 
-#' Produces heatmap plots based on the FPKM table
+#' Produces histogram plots based on the FPKM or FPM table
 
-#' @param f_table A csv table with fpm, generated using DESeq2FPKM
+#' @param f_table A csv table with fpm or fpkm, generated using DESeq2FPKM
 #' @param exp_desn  An experimental design file of PiReT
 #' @param score_type FPM or FPKM
 #' @param feature_name name of the feature from gff table that is being counted

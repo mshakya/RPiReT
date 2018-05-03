@@ -13,8 +13,7 @@ Depends:
     SummarizedExperiment (>= 1.1.6)
 Imports:
     BiocGenerics (>= 0.7.5),
-    ggplot2,
-    dplyr,
+    tidyverse,
     pheatmap,
     DESeq2,
     reshape2
