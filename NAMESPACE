@@ -2,7 +2,9 @@
 
 export(DESeq2FPKM)
 export(DESeq2FPM)
+export(DESeq2_CAplot)
 export(DESeq2_histogram)
+export(DESeq2_violin)
 export(FPKM_heatmap)
 export(FPM_heatmap)
 export(feat2deseq2)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/DESeq2_histogram.R
 \name{DESeq2_histogram}
 \alias{DESeq2_histogram}
-\title{Produces heatmap plots based on the FPKM table}
+\title{Produces histogram plots based on the FPKM or FPM table}
 \usage{
 DESeq2_histogram(f_table, exp_desn, outdir, score_type, feature_name)
 }
@@ -21,5 +21,5 @@ DESeq2_histogram(f_table, exp_desn, outdir, score_type, feature_name)
 creates PDF and PNG figures from FPM/FPKM tables
 }
 \description{
-Produces heatmap plots based on the FPKM table
+Produces histogram plots based on the FPKM or FPM table
 }
