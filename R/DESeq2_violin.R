@@ -41,7 +41,6 @@ DESeq2_violin <- function(f_table, exp_desn, outdir, score_type, feature_name){
     group_table <- dplyr::select(group_table, "Group")
     group_table2 <- tibble::rownames_to_column(group_table, "sample")
     f_data_boxplot <- merge(x = f_data, y = group_table2)
-    print(head(f_data_boxplot))
     f_violin <- ggplot2::ggplot(data = f_data_boxplot, mapping = ggplot2::aes_string(x = "Group", y = score_type)) +
         ggplot2::theme_bw() + ggplot2::geom_violin(ggplot2::aes(fill = factor(Group)))
 
