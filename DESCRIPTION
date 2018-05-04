@@ -16,7 +16,9 @@ Imports:
     tidyverse,
     pheatmap,
     DESeq2,
-    reshape2
+    reshape2,
+    dplyr,
+    ggplot2
 Suggests:
     testthat,
     knitr,
@@ -24,7 +26,7 @@ Suggests:
     devtools,
     roxygen2
 License: GPL-2
-Encoding: UTF-8
+Encoding: UTF-8 
 LazyData: true
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
