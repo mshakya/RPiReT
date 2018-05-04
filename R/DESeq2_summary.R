@@ -50,7 +50,8 @@ DESeq2_summary <- function(object, alpha, pair1, pair2, feature_name, outdir){
                              NotSig = not_sig, Up = up)
     summ_file <- file.path(outdir, paste(pair1, pair2, feature_name,
                                          "summary.csv", sep = "__"))
-    write.csv(summ_table, summ_file, row.names = c(paste(pair1,pair2,sep="+")) )
+    write.csv(summ_table, summ_file, row.names = c(paste(pair1, pair2,
+                                                         feature_name, sep="+")) )
     return(summ_table)
 }
 
