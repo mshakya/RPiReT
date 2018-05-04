@@ -46,11 +46,11 @@ DESeq2_summary <- function(object, alpha, pair1, pair2, feature_name, outdir){
     down <- sum(object$padj < alpha & object$log2FoldChange <
                     0, na.rm = TRUE)
     not_sig = notallzero - up - down
-    summ_table <- data.frame(Down = down,  NotSig = not_sig, Up = up)
+    summ_table <- data.frame(Down = down,
+                             NotSig = not_sig, Up = up)
     summ_file <- file.path(outdir, paste(pair1, pair2, feature_name,
                                          "summary.csv", sep = "__"))
-    print(summ_file)
-    write.csv(summ_table, summ_file)
+    write.csv(summ_table, summ_file, row.names = c(paste(pair1,pair2,sep="+")) )
     return(summ_table)
 }
 
