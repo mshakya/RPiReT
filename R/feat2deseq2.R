@@ -27,7 +27,7 @@ feat2deseq2 <- function(feat_count, exp_desn){
                                      perl = TRUE)
     names(read_counts) <- base::gsub("_srt.bam", "", names(read_counts), perl = TRUE)
     gene_info <- read_counts[, c(1:6)]
-    gene_ranges <- GenomicRanges::makeGRangesFromDataFrame(gene_info)
+    #gene_ranges <- GenomicRanges::makeGRangesFromDataFrame(gene_info)
 
     #read in the table with group info
     group_table <- utils::read.delim(exp_desn, row.names = 1)
@@ -36,8 +36,12 @@ feat2deseq2 <- function(feat_count, exp_desn){
     deseq_ds <- DESeq2::DESeqDataSetFromMatrix(countData = read_counts,
                                               colData = group_table,
                                               design = ~ Group,
-                                              tidy = FALSE,
-                                              rowRanges=gene_ranges)
+                                              tidy = FALSE)
+#                                              rowRanges = gene_ranges)
+
+    featureData <- data.frame(basepairs = gene_info$Length)
+    S4Vectors::mcols(deseq_ds) <- S4Vectors::DataFrame(S4Vectors::mcols(deseq_ds),
+                                            featureData)
 
   # remove genes without any counts
   deseq_ds <- deseq_ds[base::rowSums(DESeq2::counts(deseq_ds)) > 0, ]
