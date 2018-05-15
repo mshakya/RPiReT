@@ -26,7 +26,7 @@ feat2deseq2 <- function(feat_count, exp_desn){
                                      names(read_counts),
                                      perl = TRUE)
     names(read_counts) <- base::gsub("_srt.bam", "", names(read_counts), perl = TRUE)
-    gene_info <- read_counts[, c(1:5)]
+    gene_info <- read_counts[, c(1:6)]
     gene_ranges <- GenomicRanges::makeGRangesFromDataFrame(gene_info)
 
     #read in the table with group info
