@@ -33,4 +33,4 @@ expect_true(file.exists(file.path("outdir", "chr22_ERCC92_CDS_count_FPKM_violin.
 #
 expect_true(file.exists(file.path("outdir", "chr22_ERCC92_CDS_count_FPKM_violin.png")))
 #
-#unlink("outdir", recursive = TRUE)
+unlink("outdir", recursive = TRUE)

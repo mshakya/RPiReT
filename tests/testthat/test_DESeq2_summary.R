@@ -15,7 +15,7 @@ deseq_diff <- DESeq2::results(dds, contrast = c("Group", pair1, pair2))
 X <- DESeq2_summary(object = deseq_diff, alpha = 0.1,
                     pair1 = pair1, pair2 = pair2, feature_name = "gene", outdir = "outdir")
 
-print(X)
+
 #
 # check if pdf file exist test
 #
