@@ -21,7 +21,8 @@ NULL
 feat2deseq2 <- function(feat_count, exp_desn){
 
     # read table
-    read_counts <- utils::read.table(feat_count, sep = "\t", header = TRUE, row.names = 1)
+    read_counts <- utils::read.table(feat_count, sep = "\t", header = TRUE,
+                                     row.names = 1)
     names(read_counts) <- base::gsub(".*mapping_results.", "",
                                      names(read_counts),
                                      perl = TRUE)
@@ -30,7 +31,10 @@ feat2deseq2 <- function(feat_count, exp_desn){
     #gene_ranges <- GenomicRanges::makeGRangesFromDataFrame(gene_info)
 
     #read in the table with group info
-    group_table <- utils::read.delim(exp_desn, row.names = 1)
+    group_table <- utils::read.table(exp_desn, colClasses = c("character"),
+                                     comment.char = "#", row.names = 1,
+                                     sep = "\t", header = FALSE)
+    colnames(group_table) <- c("Files", "Group")
     group_table <- dplyr::select(group_table, Group)
     read_counts <- read_counts[, rownames(group_table)]
     deseq_ds <- DESeq2::DESeqDataSetFromMatrix(countData = read_counts,
