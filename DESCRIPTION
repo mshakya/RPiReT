@@ -10,7 +10,9 @@ Depends:
     S4Vectors (>= 0.9.25),
     IRanges,
     GenomicRanges,
-    SummarizedExperiment (>= 1.1.6)
+    SummarizedExperiment (>= 1.1.6),
+    pathview,
+    gage
 Imports:
     BiocGenerics (>= 0.7.5),
     tidyverse,
