@@ -1,4 +1,4 @@
-Package: RPiReT
+Package: rpiret
 Type: Package
 Title: A package that supports PiReT
 Version: 0.1.0

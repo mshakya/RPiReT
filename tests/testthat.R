@@ -1,4 +1,4 @@
 library(testthat)
-library(RPiReT)
+library(rpiret)
 
-test_check("RPiReT")
+test_check("rpiret")
